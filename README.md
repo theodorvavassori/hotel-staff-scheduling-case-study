@@ -5,8 +5,7 @@ Advisor: Dr. Andrea Mocci.
 
 This repository documents the project: the research behind it, how the prototype was built and how it was evaluated. The source code is kept in a private repository and is available on request.
 
-<!-- SCREENSHOT: thesis Figure 4, the Schedule tab. Save as images/schedule_tab.png -->
-![The Schedule tab, showing the Staff × Day grid with generated, manually overridden and unassigned shifts](images/schedule_tab.png)
+![The Schedule tab, showing the Staff × Day grid with generated, manually overridden and unassigned shifts](images/schedule_tab_screenshot.png)
 
 ## Why this project exists
 
@@ -42,14 +41,12 @@ From these, three design principles followed and shaped every later decision.
 
 ## The prototype
 
-<!-- SCREENSHOT: thesis Figure 2, the architecture diagram. Save as images/architecture.png -->
-![Architecture of the prototype](images/architecture.png)
+![Architecture of the prototype](images/architecture_overview.png)
 
 The prototype is a standard three tier web application. A React frontend talks to a Spring Boot backend through a REST API. The backend runs the Timefold constraint solver, stores everything in MongoDB Atlas and calls the Anthropic Claude API through Spring AI to read occupancy data. Nothing about this architecture is surprising, and that is deliberate: the time was meant to go into the scheduling problem, not into the architecture. The backend was deployed on Render and the frontend on Netlify, behind authentication.
 
 The domain model came straight out of the feature clustering. A structure (the hotel) contains departments, each with its own staff, shift templates and schedule periods, because in every hotel interviewed the restaurant and the reception build their schedules separately. A shift assignment is the unit the solver works on, and a weekly snapshot of each worker is saved permanently once a week is finalised.
 
-<!-- IMAGE: thesis Figure 3, the domain model. Save as images/domain_model.png -->
 ![Simplified domain model](images/domain_model.png)
 
 What it does:
@@ -93,14 +90,13 @@ private Constraint juniorNeverAlone(ConstraintFactory factory) {
 
 ### Screens
 
-<!-- SCREENSHOTS: thesis Figures 5 to 8. Save under images/ with these names. -->
 | Staff | Shifts |
 |---|---|
-| ![Staff tab](images/staff_tab.png) | ![Shifts tab](images/shifts_tab.png) |
+| ![Staff tab](images/staff_tab_screenshot.png) | ![Shifts tab](images/shifts_tab_screenshot.png) |
 
 | Occupancy import | Monthly report |
 |---|---|
-| ![Occupancy import preview](images/occupancy_tab.png) | ![Monthly report](images/reports_tab.png) |
+| ![Occupancy import preview](images/occupancy_tab_screenshot.png) | ![Monthly report](images/reports_tab_screenshot.png) |
 
 ## Evaluation
 
@@ -126,8 +122,8 @@ The project continues as part of a broader suite of software for hospitality.
 
 ## Documents
 
-* [Thesis report (PDF)](docs/thesis_report.pdf)
-* [Poster (PDF)](docs/poster.pdf)
+* [Thesis report (PDF)](docs/BACHELOR_PROJECT_REPORT.pdf)
+* [Poster (PDF)](docs/BACHELOR_PROJECT_POSTER.pdf)
 
 ## Technologies
 
